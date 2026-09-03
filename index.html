@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A bright, polished Hello World page." />
+    <title>Hello, World!</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #f8fafc;
+        --muted: #cbd5e1;
+        --glass: rgba(15, 23, 42, 0.58);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: #071326;
+      }
+
+      .orb {
+        position: fixed;
+        width: 34rem;
+        height: 34rem;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.65;
+        animation: drift 12s ease-in-out infinite alternate;
+      }
+
+      .orb.one { top: -16rem; left: -11rem; background: #7c3aed; }
+      .orb.two { right: -13rem; bottom: -16rem; background: #06b6d4; animation-delay: -5s; }
+
+      main {
+        position: relative;
+        width: min(90vw, 720px);
+        padding: clamp(2.5rem, 8vw, 5rem);
+        text-align: center;
+        background: var(--glass);
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 28px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(18px);
+        animation: rise 0.8s cubic-bezier(.2,.8,.2,1) both;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .badge::before { content: ""; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #5eead4; box-shadow: 0 0 14px #5eead4; }
+
+      h1 {
+        margin: 1.35rem 0 0.8rem;
+        font-size: clamp(3rem, 10vw, 6.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.07em;
+        background: linear-gradient(110deg, #fff 20%, #a5f3fc 50%, #c4b5fd 80%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      p { max-width: 33rem; margin: 0 auto 2rem; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.18rem); line-height: 1.65; }
+
+      a {
+        display: inline-block;
+        padding: 0.85rem 1.25rem;
+        border-radius: 0.8rem;
+        color: #0f172a;
+        font-weight: 750;
+        text-decoration: none;
+        background: linear-gradient(110deg, #67e8f9, #c4b5fd);
+        box-shadow: 0 10px 28px rgba(103, 232, 249, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      a:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(103, 232, 249, 0.35); }
+
+      @keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
+      @keyframes drift { to { transform: translate(4rem, 3rem) scale(1.18); } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <main>
+      <span class="badge">Ready to explore</span>
+      <h1>Hello, World!</h1>
+      <p>A small beginning with a little extra sparkle. Your next great idea can start right here.</p>
+      <a href="#" onclick="alert('Welcome aboard!'); return false;">Say hello →</a>
+    </main>
+  </body>
+</html>
