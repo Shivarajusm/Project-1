@@ -94,6 +94,12 @@
 
       a:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(103, 232, 249, 0.35); }
 
+      nav { position: fixed; z-index: 2; top: 0; left: 50%; transform: translateX(-50%); width: min(90vw, 720px); display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
+      nav .brand { color: #fff; font-weight: 800; letter-spacing: -0.04em; text-decoration: none; }
+      nav .links { display: flex; gap: 0.4rem; }
+      nav .links a { padding: 0.4rem 0.65rem; color: var(--muted); background: none; box-shadow: none; font-size: 0.9rem; font-weight: 600; }
+      nav .links a:hover, nav .links a[aria-current="page"] { color: #fff; transform: none; }
+
       @keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
       @keyframes drift { to { transform: translate(4rem, 3rem) scale(1.18); } }
       @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
@@ -102,11 +108,15 @@
   <body>
     <div class="orb one"></div>
     <div class="orb two"></div>
+    <nav>
+      <a class="brand" href="index.html">hello.</a>
+      <div class="links"><a aria-current="page" href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    </nav>
     <main>
       <span class="badge">Ready to explore</span>
       <h1>Hello, World!</h1>
       <p>A small beginning with a little extra sparkle. Your next great idea can start right here.</p>
-      <a href="#" onclick="alert('Welcome aboard!'); return false;">Say hello →</a>
+      <a href="about.html">Discover more &rarr;</a>
     </main>
   </body>
 </html>
